@@ -19,11 +19,11 @@ logger = logging.getLogger(__name__)
 
 class IntelTCOWatchdog:
     """
-    Intel TCO (Total Cost of Ownership) Watchdog Controller
+    Intel TCO Watchdog Controller
     Nutzt den eingebauten Hardware-Watchdog des Intel Chipsets
     """
     
-    def __init__(self, bus_num=2, pca_address=0x20):
+    def __init__(self, bus_num=3, pca_address=0x20):
         self.watchdog_device = "/dev/watchdog"
         self.watchdog_fd = None
         self.running = True
