@@ -1,0 +1,21 @@
+[Unit]
+Description=Intel TCO Watchdog Controller
+After=multi-user.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/bin/tco-watchdog.py
+Restart=always
+RestartSec=10
+User=root
+
+# Watchdog-spezifische Einstellungen
+WatchdogSec=60
+NotifyAccess=main
+
+# Umgebungsvariablen
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
